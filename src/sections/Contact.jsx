@@ -5,7 +5,7 @@ import { GithubIcon, LinkedinIcon } from '../components/BrandIcons';
 import emailjs from '@emailjs/browser';
 import SectionWrapper, { SectionHeading } from '../components/SectionWrapper';
 
-const SERVICE_ID = 'service_sd3ej6l';
+const SERVICE_ID = 'service_lkhmkfa';
 const TEMPLATE_ID = 'template_tqoxrrf';
 const PUBLIC_KEY = 'BFVLUIdjpQHxA3W2m';
 
