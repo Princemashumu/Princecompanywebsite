@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom"
 import { lazy, Suspense, useState } from "react"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
+import CustomCursor from "./components/CustomCursor"
 import Home from "./pages/Home"
 import SplashScreen from "./components/SplashScreen"
 
@@ -20,6 +21,7 @@ export default function App() {
 
   return (
     <>
+      <CustomCursor />
       <SplashScreen onDone={() => setSplashDone(true)} />
       <div className={`min-h-screen bg-white dark:bg-slate-900 font-sans antialiased transition-opacity duration-500 ${splashDone ? 'opacity-100' : 'opacity-0'}`}>
       <Navbar />

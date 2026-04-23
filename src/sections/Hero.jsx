@@ -54,6 +54,8 @@ const itemVariants = {
 
 export default function Hero() {
   const typedTitle = useTypingEffect(TITLES);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-cyan-50/30 to-white dark:from-slate-950 dark:via-cyan-950/20 dark:to-slate-900">
@@ -164,12 +166,44 @@ export default function Hero() {
         >
           <div className="relative w-80 h-80">
             {/* Profile photo */}
-            <div className="w-full h-full rounded-3xl border-2 border-cyan-200 dark:border-cyan-700 overflow-hidden shadow-2xl shadow-cyan-500/20">
-              <img
-                src="/profile.jpeg"
-                alt="Prince Ngwako Mashumu"
-                className="w-full h-full object-cover object-top"
-              />
+            <div className="w-full h-full rounded-3xl border-2 border-cyan-200 dark:border-cyan-700 overflow-hidden shadow-2xl shadow-cyan-500/20 bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-800">
+              {!imageError && (
+                <img
+                  src="/profile.png"
+                  alt="Prince Ngwako Mashumu"
+                  className={`w-full h-full object-cover object-top transition-opacity duration-500 ${
+                    imageLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  onLoad={() => setImageLoaded(true)}
+                  onError={() => {
+                    setImageError(true);
+                    setImageLoaded(false);
+                  }}
+                />
+              )}
+              
+              {!imageLoaded && (
+                <motion.div
+                  initial={{ opacity: 1 }}
+                  animate={imageLoaded ? { opacity: 0 } : { opacity: 1 }}
+                  className="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center"
+                >
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+                    className="w-8 h-8 border-2 border-cyan-400/30 border-t-cyan-400 rounded-full"
+                  />
+                </motion.div>
+              )}
+
+              {imageError && (
+                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-800">
+                  <div className="text-center">
+                    <p className="text-slate-600 dark:text-slate-400 text-sm font-medium">Profile image</p>
+                    <p className="text-slate-500 dark:text-slate-500 text-xs">unavailable</p>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Floating stats cards */}

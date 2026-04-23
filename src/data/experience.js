@@ -36,7 +36,6 @@ export const experiences = [
     end: 'Apr 2025',
     bullets: [
       'Designed and developed responsive websites and mobile applications for community and NGO clients.',
-      'Mentored aspiring developers through mLab\'s digital skills programmes.',
       'Translated client briefs into functional, accessible digital products.',
       'Contributed to open-source projects and community tech initiatives in the Soweto region.',
     ],
@@ -49,9 +48,9 @@ export const experiences = [
     start: 'Sep 2023',
     end: 'Jan 2024',
     bullets: [
-      'Participated in hands-on software development projects during academic internship.',
-      'Gained practical exposure to agile workflows, version control, and collaborative coding.',
-      'Assisted in building internal tools and prototypes under senior developer guidance.',
+      'Completed Microsoft Azure certification program and courses.',
+      'Gained foundational knowledge in cloud infrastructure, services, and Azure ecosystem.',
+      'Developed hands-on experience with Azure cloud services and deployment.',
     ],
   },
 ];
